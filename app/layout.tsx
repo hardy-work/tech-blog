@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "CHAEI PUEI Tech — Honest Tech Reviews",
   description:
     "In-depth reviews, product comparisons, and my personal recommended tools for developers and tech enthusiasts.",
+  other: {
+    "impact-site-verification": "2d65815a-90d1-4fc9-9cd2-582abca3ef10",
+  },
 };
 
 export default function RootLayout({
