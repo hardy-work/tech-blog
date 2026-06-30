@@ -37,8 +37,8 @@ export default function Hero() {
         </h1>
 
         <p className="max-w-xl mx-auto text-lg mb-10" style={{ color: "var(--muted)" }}>
-          In-depth reviews, head-to-head comparisons, and curated tool picks
-          for developers and tech enthusiasts — no affiliate-first opinions.
+          By <span style={{ color: "#22d3ee" }}>CHAEI PUEI Tech</span> — in-depth reviews,
+          head-to-head comparisons, and curated tool picks for developers and tech enthusiasts.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16">

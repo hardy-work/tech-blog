@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Navbar() {
   const links = [
     { label: "Reviews", href: "#reviews" },
@@ -7,12 +9,20 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md border-b"
-      style={{ borderColor: "var(--border)", background: "rgba(9,9,11,0.85)" }}>
+    <header
+      className="sticky top-0 z-50 backdrop-blur-md border-b"
+      style={{ borderColor: "var(--border)", background: "rgba(9,9,11,0.85)" }}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 font-bold text-lg">
-          <span className="text-2xl">🔭</span>
-          <span className="gradient-text">TechLens</span>
+        <a href="#" className="flex items-center gap-2">
+          <Image
+            src="/logo.png"
+            alt="CHAEI PUEI Tech"
+            width={120}
+            height={40}
+            className="h-10 w-auto object-contain"
+            priority
+          />
         </a>
 
         <nav className="hidden md:flex items-center gap-6">

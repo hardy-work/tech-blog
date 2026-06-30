@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Footer() {
   const sections = [
     {
@@ -35,9 +37,14 @@ export default function Footer() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           {/* brand */}
           <div className="col-span-2 lg:col-span-1">
-            <a href="#" className="flex items-center gap-2 font-bold text-lg mb-3">
-              <span className="text-2xl">🔭</span>
-              <span className="gradient-text">TechLens</span>
+            <a href="#" className="inline-block mb-3">
+              <Image
+                src="/logo.png"
+                alt="CHAEI PUEI Tech"
+                width={140}
+                height={47}
+                className="h-12 w-auto object-contain"
+              />
             </a>
             <p className="text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
               Independent tech reviews for developers and enthusiasts who want
@@ -60,7 +67,10 @@ export default function Footer() {
 
           {sections.map((sec) => (
             <div key={sec.title}>
-              <h4 className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: "#a1a1aa" }}>
+              <h4
+                className="text-xs font-semibold uppercase tracking-wider mb-4"
+                style={{ color: "#a1a1aa" }}
+              >
                 {sec.title}
               </h4>
               <ul className="space-y-2.5">
@@ -84,16 +94,24 @@ export default function Footer() {
           className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 text-xs"
           style={{ borderTop: "1px solid var(--border)", color: "var(--muted)" }}
         >
-          <p>© 2026 TechLens. All rights reserved.</p>
+          <p>© 2026 CHAEI PUEI Tech. All rights reserved.</p>
           <p>
             Built with{" "}
-            <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer"
-              className="hover:text-white transition-colors">
+            <a
+              href="https://nextjs.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
               Next.js
             </a>{" "}
             &{" "}
-            <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer"
-              className="hover:text-white transition-colors">
+            <a
+              href="https://tailwindcss.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
               Tailwind CSS
             </a>
           </p>
