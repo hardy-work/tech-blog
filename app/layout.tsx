@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   authors: [{ name: "CHAEI PUEI Tech", url: siteConfig.url }],
   creator: "CHAEI PUEI Tech",
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  verification: { google: "DjOxl3H7-j56nyQXFX7IjmKG74PkJyxs2fGhkLwrGDQ" },
   openGraph: {
     type: "website",
     locale: "en_US",
