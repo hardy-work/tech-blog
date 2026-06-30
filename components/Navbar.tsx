@@ -6,6 +6,7 @@ export default function Navbar() {
     { label: "Compare", href: "/#compare" },
     { label: "Tools", href: "/tools" },
     { label: "Blog", href: "/blog" },
+    { label: "About", href: "/about" },
   ];
 
   return (
