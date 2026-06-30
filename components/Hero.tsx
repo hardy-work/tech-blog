@@ -43,14 +43,14 @@ export default function Hero() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16">
           <a
-            href="#reviews"
+            href="/blog"
             className="px-6 py-3 rounded-xl text-sm font-semibold text-white transition-opacity hover:opacity-90"
             style={{ background: "linear-gradient(135deg, #7c3aed, #4f46e5)" }}
           >
             Read Latest Reviews
           </a>
           <a
-            href="#tools"
+            href="/tools"
             className="px-6 py-3 rounded-xl text-sm font-semibold border transition-colors hover:bg-white/5"
             style={{ borderColor: "var(--border)", color: "#a1a1aa" }}
           >
