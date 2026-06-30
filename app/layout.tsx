@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "In-depth reviews, product comparisons, and my personal recommended tools for developers and tech enthusiasts.",
   other: {
-    "impact-site-verification": "2d65815a-90d1-4fc9-9cd2-582abca3ef10",
+    "impact-site-verification": "2acd882b-7451-49b5-a6a4-40f1a8cbfe04",
   },
 };
 
