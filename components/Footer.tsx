@@ -5,6 +5,7 @@ export default function Footer() {
     {
       title: "Content",
       links: [
+        { label: "My Stack", href: "/stack" },
         { label: "Blog", href: "/blog" },
         { label: "Tools", href: "/tools" },
         { label: "About", href: "/about" },

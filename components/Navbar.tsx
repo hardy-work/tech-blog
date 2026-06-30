@@ -2,6 +2,7 @@ import Image from "next/image";
 
 export default function Navbar() {
   const links = [
+    { label: "My Stack", href: "/stack" },
     { label: "Blog", href: "/blog" },
     { label: "Tools", href: "/tools" },
     { label: "About", href: "/about" },
