@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #09090b;
+  --card: #18181b;
+  --card-hover: #27272a;
+  --border: #3f3f46;
+  --muted: #71717a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: #fafafa;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  background: var(--card-hover);
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.12);
+}
+
+.badge-editors-pick { background: linear-gradient(135deg, #7c3aed, #4f46e5); }
+.badge-best-value   { background: linear-gradient(135deg, #059669, #0891b2); }
+.badge-top-rated    { background: linear-gradient(135deg, #dc2626, #ea580c); }
+
+.img-placeholder {
+  background: linear-gradient(135deg, #27272a 0%, #18181b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #52525b; }
