@@ -2,10 +2,8 @@ import Image from "next/image";
 
 export default function Navbar() {
   const links = [
-    { label: "Reviews", href: "/#reviews" },
-    { label: "Compare", href: "/#compare" },
-    { label: "Tools", href: "/tools" },
     { label: "Blog", href: "/blog" },
+    { label: "Tools", href: "/tools" },
     { label: "About", href: "/about" },
   ];
 
