@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllArticles, getArticle, getRelatedArticles } from "@/lib/articles";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
+import { siteConfig } from "@/lib/config";
 
 export function generateStaticParams() {
   return getAllArticles().map((a) => ({ slug: a.slug }));
@@ -16,9 +17,29 @@ export async function generateMetadata({
   const { slug } = await params;
   const article = getArticle(slug);
   if (!article) return {};
+  const url = `${siteConfig.url}/blog/${slug}`;
   return {
-    title: `${article.title} — CHAEI PUEI Tech`,
+    title: article.title,
     description: article.excerpt,
+    keywords: article.tags,
+    authors: [{ name: article.author, url: siteConfig.url }],
+    alternates: { canonical: url },
+    openGraph: {
+      title: article.title,
+      description: article.excerpt,
+      url,
+      type: "article",
+      publishedTime: article.date,
+      authors: [article.author],
+      tags: article.tags,
+      images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: article.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.excerpt,
+      images: [siteConfig.ogImage],
+    },
   };
 }
 
@@ -32,9 +53,32 @@ export default async function BlogPostPage({
   if (!article) notFound();
 
   const related = getRelatedArticles(article.slug, article.tags);
+  const url = `${siteConfig.url}/blog/${slug}`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.excerpt,
+    author: { "@type": "Person", name: article.author, url: siteConfig.url },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    datePublished: article.date,
+    dateModified: article.date,
+    url,
+    keywords: article.tags.join(", "),
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+  };
 
   return (
     <div className="min-h-screen" style={{ background: "#09090b" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Header */}
       <header
         className="sticky top-0 z-50 backdrop-blur-md border-b"

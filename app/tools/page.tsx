@@ -3,9 +3,24 @@ import { getAllTools, getAllToolCategories } from "@/lib/tools";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-export const metadata = {
-  title: "Tools — CHAEI PUEI Tech",
+import type { Metadata } from "next";
+import { siteConfig } from "@/lib/config";
+
+export const metadata: Metadata = {
+  title: "Tools",
   description: "Tools, hosting, editors, and UI kits I use every day. Honest reviews with clearly marked affiliate links.",
+  alternates: { canonical: `${siteConfig.url}/tools` },
+  openGraph: {
+    title: "My Tech Stack — CHAEI PUEI Tech",
+    description: "Tools, hosting, editors, and UI kits I use every day. Honest reviews with clearly marked affiliate links.",
+    url: `${siteConfig.url}/tools`,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "My Tech Stack — CHAEI PUEI Tech",
+    description: "Tools, hosting, editors, and UI kits I use every day. Honest reviews with clearly marked affiliate links.",
+  },
 };
 
 const categoryEmoji: Record<string, string> = {

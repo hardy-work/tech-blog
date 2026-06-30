@@ -3,9 +3,24 @@ import { getAllArticles } from "@/lib/articles";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-export const metadata = {
-  title: "Blog — CHAEI PUEI Tech",
+import type { Metadata } from "next";
+import { siteConfig } from "@/lib/config";
+
+export const metadata: Metadata = {
+  title: "Blog",
   description: "All articles on tech reviews, DevOps, productivity, and everything I've learned from hours of testing.",
+  alternates: { canonical: `${siteConfig.url}/blog` },
+  openGraph: {
+    title: "Blog — CHAEI PUEI Tech",
+    description: "All articles on tech reviews, DevOps, productivity, and everything I've learned from hours of testing.",
+    url: `${siteConfig.url}/blog`,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog — CHAEI PUEI Tech",
+    description: "All articles on tech reviews, DevOps, productivity, and everything I've learned from hours of testing.",
+  },
 };
 
 const categoryColors: Record<string, string> = {

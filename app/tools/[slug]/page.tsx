@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllTools, getTool, getRelatedTools } from "@/lib/tools";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
+import { siteConfig } from "@/lib/config";
 
 export function generateStaticParams() {
   return getAllTools().map((t) => ({ slug: t.slug }));
@@ -16,9 +17,26 @@ export async function generateMetadata({
   const { slug } = await params;
   const tool = getTool(slug);
   if (!tool) return {};
+  const url = `${siteConfig.url}/tools/${slug}`;
+  const title = `${tool.name} Review — Is It Worth It in 2026?`;
   return {
-    title: `${tool.name} Review — CHAEI PUEI Tech`,
+    title,
     description: tool.excerpt,
+    keywords: [...tool.tags, tool.name, tool.category, "review"],
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description: tool.excerpt,
+      url,
+      type: "article",
+      images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: tool.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: tool.excerpt,
+      images: [siteConfig.ogImage],
+    },
   };
 }
 
@@ -53,9 +71,41 @@ export default async function ToolDetailPage({
   if (!tool) notFound();
 
   const related = getRelatedTools(tool.slug, tool.tags);
+  const url = `${siteConfig.url}/tools/${slug}`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    name: `${tool.name} Review`,
+    description: tool.excerpt,
+    url,
+    author: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
+    datePublished: tool.date,
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: tool.rating,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    itemReviewed: {
+      "@type": "SoftwareApplication",
+      name: tool.name,
+      applicationCategory: tool.category,
+      url: tool.websiteUrl,
+      offers: tool.pricing.map((p) => ({
+        "@type": "Offer",
+        name: p.plan,
+        price: p.price,
+      })),
+    },
+  };
 
   return (
     <div className="min-h-screen" style={{ background: "#09090b" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Header */}
       <header
         className="sticky top-0 z-50 backdrop-blur-md border-b"
