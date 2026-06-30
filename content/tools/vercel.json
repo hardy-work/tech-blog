@@ -1,0 +1,35 @@
+{
+  "id": "vercel",
+  "slug": "vercel",
+  "name": "Vercel",
+  "category": "Hosting",
+  "tagline": "Deploy Next.js apps in seconds — zero config",
+  "excerpt": "Vercel is the deployment platform built and optimized for Next.js, by the same team that created it. Global edge network, automatic preview deployments, and built-in analytics — all out of the box.",
+  "affiliateUrl": "https://vercel.com/signup?ref=chaeipuei",
+  "websiteUrl": "https://vercel.com",
+  "pricing": [
+    { "plan": "Hobby", "price": "Free", "highlight": false },
+    { "plan": "Pro", "price": "$20/month", "highlight": true },
+    { "plan": "Enterprise", "price": "Custom", "highlight": false }
+  ],
+  "rating": 4.9,
+  "pros": [
+    "Zero-config deploy for Next.js App Router",
+    "Automatic preview deployments for every PR",
+    "Edge network across 100+ global locations",
+    "Built-in Vercel Analytics & Speed Insights",
+    "Serverless Functions & Edge Runtime",
+    "Free SSL, CDN, and custom domain"
+  ],
+  "cons": [
+    "Pro costs can escalate quickly under high traffic",
+    "Vendor lock-in for certain Next.js-specific features",
+    "Bandwidth limits on the Hobby plan"
+  ],
+  "image": "/images/tools/vercel.png",
+  "badge": "Editor's Pick",
+  "tags": ["hosting", "nextjs", "deployment", "cicd", "serverless", "cdn"],
+  "date": "2026-06-30",
+  "affiliate": true,
+  "content": "## What is Vercel?\n\nVercel is a cloud platform built by the same team that develops Next.js. That means every new Next.js feature — from Server Components and App Router to Edge Runtime — is natively supported and optimally tuned on Vercel from day one.\n\n> **ℹ️** Vercel isn't just for Next.js. You can deploy any framework: React, Vue, Svelte, Nuxt, Remix, Astro, and more.\n\n## Why Vercel is the #1 choice for Next.js\n\n### Zero-config deployment\n\nConnect your GitHub repo and Vercel automatically detects your framework, configures the build command, and sets the output directory — no extra config files needed. Push to `main` and you're live in 30 seconds.\n\n```bash\n# Install Vercel CLI\nnpm install -g vercel\n\n# Deploy from terminal\nvercel\n\n# Deploy to production\nvercel --prod\n```\n\n### Preview Deployments\n\nEvery Pull Request automatically gets its own preview URL. Design, product, and QA teams can review changes directly on that URL without running anything locally. This is easily Vercel's biggest time-saving feature.\n\n### Edge Network & Performance\n\nVercel runs on 100+ edge locations worldwide. Static assets and ISR pages are cached at the edge closest to the user, delivering latency under 50ms.\n\n### Vercel Analytics\n\nThe Pro plan includes Vercel Analytics — cookie-free, GDPR compliant, with real user metrics (LCP, CLS, FID). It integrates directly into Next.js with no external scripts required.\n\n```typescript\n// app/layout.tsx\nimport { Analytics } from '@vercel/analytics/react';\n\nexport default function RootLayout({ children }) {\n  return (\n    <html>\n      <body>\n        {children}\n        <Analytics />\n      </body>\n    </html>\n  );\n}\n```\n\n## Vercel vs the competition\n\n| Feature | Vercel | Netlify | Railway | VPS self-host |\n|---|---|---|---|---|\n| Next.js optimization | ✅ Native | Partial | Partial | Manual |\n| Preview deployments | ✅ | ✅ | ❌ | ❌ |\n| Edge functions | ✅ Global | Limited | ❌ | ❌ |\n| Built-in analytics | ✅ Pro | ✅ | ❌ | Self-setup |\n| Free tier | Generous | Generous | Limited | - |\n| Scaling cost | High | Moderate | Low | Cheapest |\n\n## Pricing in practice\n\n**Hobby (Free):** Great for personal projects and side projects with no commercial requirements. Limits: 100GB bandwidth/month, no team collaboration.\n\n**Pro ($20/month/user):** Suited for startups and small teams. Includes Analytics, Password Protection, unlimited bandwidth (fair use), and custom domain per project.\n\n> **⚠️** Costs can spike unexpectedly with heavy Serverless Function invocations or Edge Middleware usage. Keep an eye on the usage dashboard regularly.\n\n## Conclusion\n\nIf you're building with Next.js, Vercel is the simplest and most optimized choice — at least until your traffic grows large enough to justify the cost of self-hosting. The Hobby plan is more than enough to get started, and upgrading to Pro makes sense when you need team features or analytics."
+}

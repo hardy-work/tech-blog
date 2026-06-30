@@ -1,0 +1,35 @@
+{
+  "id": "digitalocean",
+  "slug": "digitalocean",
+  "name": "DigitalOcean",
+  "category": "Hosting",
+  "tagline": "Simple cloud infrastructure with transparent pricing for developers",
+  "excerpt": "DigitalOcean is the cloud provider of choice for indie developers. VPS (Droplets) starting at $4/month, App Platform PaaS, managed databases, and exceptionally detailed documentation.",
+  "affiliateUrl": "https://www.digitalocean.com/?refcode=chaeipuei",
+  "websiteUrl": "https://www.digitalocean.com",
+  "pricing": [
+    { "plan": "Droplet Basic", "price": "From $4/month", "highlight": false },
+    { "plan": "App Platform", "price": "From $0/month", "highlight": true },
+    { "plan": "Managed DB", "price": "From $15/month", "highlight": false }
+  ],
+  "rating": 4.7,
+  "pros": [
+    "Most affordable in its segment: $4/month for 512MB RAM, 10GB SSD",
+    "Transparent hourly billing — no surprise invoices",
+    "Exceptional documentation quality (Community Tutorials)",
+    "App Platform PaaS deploys from GitHub repos as easily as Vercel",
+    "Managed PostgreSQL, MySQL, and Redis with automatic backups",
+    "$200 free credit for new accounts via referral link"
+  ],
+  "cons": [
+    "Support response times are slower than AWS/GCP",
+    "Fewer regions than major cloud providers (no native Southeast Asia region)",
+    "App Platform gets more expensive than self-managed Droplets at scale"
+  ],
+  "image": "/images/tools/digitalocean.png",
+  "badge": "Best Value",
+  "tags": ["hosting", "vps", "cloud", "deployment", "database", "paas"],
+  "date": "2026-06-30",
+  "affiliate": true,
+  "content": "## What is DigitalOcean?\n\nDigitalOcean was founded in 2011 with a simple philosophy: make cloud easy for developers. While AWS offers hundreds of complex services, DigitalOcean focuses on core products and a clean, developer-friendly UX.\n\n## Core products\n\n### Droplets (VPS)\n\nDigitalOcean's VPS offering — straightforward, fast, and transparently priced:\n\n| Tier | RAM | vCPU | SSD | Bandwidth | Price/month |\n|---|---|---|---|---|---|\n| Basic | 512MB | 1 | 10GB | 500GB | $4 |\n| Basic | 1GB | 1 | 25GB | 1TB | $6 |\n| Basic | 2GB | 1 | 50GB | 2TB | $12 |\n| General | 8GB | 2 | 25GB SSD | 4TB | $48 |\n\n> **💡** The Singapore datacenter (SGP1) is the closest to Vietnam, with latency around 30–50ms.\n\n### App Platform (PaaS)\n\nSimilar to Vercel/Netlify but with Docker container support:\n\n```yaml\n# .do/app.yaml\nname: my-app\nservices:\n- name: web\n  source_dir: /\n  github:\n    repo: username/repo\n    branch: main\n    deploy_on_push: true\n  run_command: npm start\n  http_port: 3000\n  instance_count: 1\n  instance_size_slug: apps-s-1vcpu-0.5gb\n```\n\nFree tier: 3 static sites. Dynamic apps start at $5/month.\n\n### Managed Databases\n\nPostgreSQL, MySQL, Redis, and MongoDB with:\n- Automatic daily backups and point-in-time restore\n- Standby nodes for high availability\n- Connection pooling with PgBouncer (PostgreSQL)\n\n```bash\n# Connect to a Managed PostgreSQL database\npsql \"postgresql://user:pass@db-cluster.db.ondigitalocean.com:25060/defaultdb?sslmode=require\"\n```\n\n## DigitalOcean vs AWS\n\n| Criteria | DigitalOcean | AWS EC2 |\n|---|---|---|\n| Entry-level price | $4/month | ~$8–10/month (t3.micro) |\n| Billing | Hourly, monthly cap | Per second |\n| Setup time | 55 seconds | 5–10 minutes |\n| UI/UX | Very simple | Complex |\n| Docs | Excellent | Extensive, hard to navigate |\n| Services | ~15 core | 200+ |\n| Enterprise features | Limited | Full |\n\n## When to use DigitalOcean\n\n- **Indie developers and side projects:** A $4–12/month Droplet handles most workloads comfortably\n- **Self-hosting Next.js/Docker:** The guide on [deploying Next.js with Docker and Nginx](/blog/deploy-nextjs-docker-nginx) uses DigitalOcean\n- **Early-stage startups:** App Platform is great for MVPs; Managed DB saves ops time\n- **Avoiding AWS vendor lock-in:** API and pricing are far more predictable\n\n> **⚠️** DigitalOcean is not the right fit if you need enterprise compliance (HIPAA, full PCI-DSS stack), large-scale ML/GPU workloads, or a global presence across many regions.\n\n## Get started with $200 free credit\n\nNew accounts created through a referral link receive $200 in credit valid for 60 days — enough to run a full stack completely free while you evaluate the platform."
+}

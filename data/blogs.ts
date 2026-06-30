@@ -1,4 +1,4 @@
-export interface Post {
+export interface BlogPost {
   slug: string;
   title: string;
   excerpt: string;
@@ -9,7 +9,7 @@ export interface Post {
   featured?: boolean;
 }
 
-export const posts: Post[] = [
+export const blogs: BlogPost[] = [
   {
     slug: "macbook-pro-m4-review",
     title: "MacBook Pro M4 Review: Is It Worth the Upgrade?",

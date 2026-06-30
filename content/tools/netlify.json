@@ -1,0 +1,35 @@
+{
+  "id": "netlify",
+  "slug": "netlify",
+  "name": "Netlify",
+  "category": "Hosting",
+  "tagline": "Deploy web projects fast — powerful for JAMstack",
+  "excerpt": "Netlify is one of the first deployment platforms built for JAMstack. Branch deploys, form handling, Edge Functions, and Netlify CMS. A solid Vercel alternative when you want to avoid vendor lock-in.",
+  "affiliateUrl": "https://netlify.com/signup",
+  "websiteUrl": "https://netlify.com",
+  "pricing": [
+    { "plan": "Starter", "price": "Free", "highlight": false },
+    { "plan": "Pro", "price": "$19/month", "highlight": true },
+    { "plan": "Business", "price": "$99/month", "highlight": false }
+  ],
+  "rating": 4.5,
+  "pros": [
+    "Deploy from a Git repo in 30 seconds",
+    "Branch deploys and deploy previews for every PR",
+    "Netlify Forms: handle form submissions without a backend",
+    "Identity (Auth): built-in authentication service",
+    "Edge Functions running at CDN nodes worldwide",
+    "Free plan: 100GB bandwidth, 300 build minutes/month"
+  ],
+  "cons": [
+    "Next.js App Router features are not as optimized as on Vercel",
+    "Slower build times than Vercel for Next.js",
+    "Pro/Business pricing is high relative to the features offered",
+    "Some Next.js 15+ features require a separate adapter"
+  ],
+  "image": "/images/tools/netlify.png",
+  "tags": ["hosting", "deployment", "jamstack", "cicd", "cdn", "serverless"],
+  "date": "2026-06-30",
+  "affiliate": true,
+  "content": "## Netlify vs Vercel — which one should you pick?\n\nBoth are top-tier deployment platforms, but they have different focuses:\n\n- **Vercel:** Most optimized for Next.js, built by the same team\n- **Netlify:** More framework-agnostic, with extra features like Forms and Identity\n\nIf you're using Next.js and don't mind vendor lock-in → Vercel. If you're on Remix, Gatsby, Hugo, or need built-in form handling → Netlify.\n\n## Deploying Next.js to Netlify\n\n```bash\n# Install the Netlify adapter for Next.js\nnpm install @netlify/plugin-nextjs\n```\n\n```toml\n# netlify.toml\n[build]\n  command = \"npm run build\"\n  publish = \".next\"\n\n[[plugins]]\n  package = \"@netlify/plugin-nextjs\"\n```\n\nOr even simpler: connect your GitHub repo via the Netlify dashboard and it auto-detects Next.js.\n\n## Netlify Forms — killer feature\n\nHandle form submissions without any server:\n\n```html\n<!-- HTML form with the netlify attribute -->\n<form name=\"contact\" method=\"POST\" data-netlify=\"true\">\n  <input type=\"hidden\" name=\"form-name\" value=\"contact\" />\n  <input type=\"email\" name=\"email\" placeholder=\"Email\" />\n  <textarea name=\"message\"></textarea>\n  <button type=\"submit\">Send</button>\n</form>\n```\n\nNetlify automatically:\n- Receives submissions and stores them in the dashboard\n- Sends email notifications\n- Filters spam\n- Fires webhooks to Zapier, Slack, etc.\n\nFree tier limit: 100 submissions/month.\n\n## Deploy Previews\n\nSimilar to Vercel Preview Deployments — every PR gets its own URL:\n\n```\nPR #42 → https://deploy-preview-42--your-site.netlify.app\n```\n\nYou can leave comments directly on the preview UI with Netlify Collaborative Deploy.\n\n## Edge Functions\n\n```typescript\n// netlify/edge-functions/hello.ts\nimport type { Context } from \"netlify:edge\";\n\nexport default async function handler(req: Request, context: Context) {\n  const country = context.geo?.country?.name ?? \"Unknown\";\n  return new Response(`Hello from ${country}!`);\n}\n\nexport const config = { path: \"/hello\" };\n```\n\nEdge Functions run at CDN nodes worldwide, not on centralized servers.\n\n## Conclusion\n\nNetlify is the right choice if you need built-in form handling, simple authentication, or you're working with a framework other than Next.js. The free plan is quite generous for personal projects."
+}

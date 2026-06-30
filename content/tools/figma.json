@@ -1,0 +1,34 @@
+{
+  "id": "figma",
+  "slug": "figma",
+  "name": "Figma",
+  "category": "Design",
+  "tagline": "The industry-standard design tool — from wireframe to handoff",
+  "excerpt": "Figma is the #1 collaborative design tool in the industry. Real-time multiplayer, a component system, auto-layout, and dev mode handoff. Everything you need to go from idea to UI/UX product in a single tool.",
+  "affiliateUrl": "https://figma.com/signup",
+  "websiteUrl": "https://figma.com",
+  "pricing": [
+    { "plan": "Starter", "price": "Free", "highlight": false },
+    { "plan": "Professional", "price": "$15/editor/month", "highlight": true },
+    { "plan": "Organization", "price": "$45/editor/month", "highlight": false }
+  ],
+  "rating": 4.8,
+  "pros": [
+    "Real-time collaboration — multiple people editing simultaneously",
+    "Powerful Auto Layout, analogous to CSS Flexbox",
+    "Component system with variants, properties, and slots",
+    "Dev Mode: auto-generated specs, CSS/iOS/Android code snippets",
+    "FigJam for brainstorming and user flow diagrams",
+    "Free plan is sufficient for individual projects"
+  ],
+  "cons": [
+    "Web-based — requires internet, offline mode is limited",
+    "Professional plan at $15/editor/month gets expensive as the team grows",
+    "Performance degrades with very large files (100+ screens)"
+  ],
+  "image": "/images/tools/figma.png",
+  "tags": ["design", "ui", "ux", "prototyping", "collaboration", "wireframe"],
+  "date": "2026-06-30",
+  "affiliate": false,
+  "content": "## Figma in a developer's workflow\n\nFigma isn't just for designers. As a developer, you'll be working with Figma daily to:\n\n- Read specs from designers (margins, colors, typography)\n- Export assets (icons, images)\n- Quickly wireframe before writing code\n- Build landing pages solo without a designer\n\n## Dev Mode — the killer feature for developers\n\nDev Mode (shortcut: Shift+D) transforms Figma into a documentation tool:\n\n```css\n/* Figma auto-generates CSS from components */\n.hero-button {\n  display: flex;\n  align-items: center;\n  padding: 12px 24px;\n  background: #7C3AED;\n  border-radius: 8px;\n  font-family: 'Inter', sans-serif;\n  font-weight: 600;\n  font-size: 14px;\n  color: #FFFFFF;\n}\n```\n\nClick any element to see:\n- Exact dimensions and spacing\n- Typography values (font, size, weight, line-height)\n- Color hex codes\n- Border radius\n- Export CSS/Tailwind/iOS/Android code\n\n## Auto Layout — understand it to code better\n\nAuto Layout in Figma is Flexbox in CSS. When designers use Auto Layout, implementation becomes much more straightforward:\n\n| Figma Auto Layout | CSS Flexbox |\n|---|---|\n| Direction: Horizontal | flex-direction: row |\n| Direction: Vertical | flex-direction: column |\n| Gap: 16 | gap: 16px |\n| Padding: 12 24 | padding: 12px 24px |\n| Fill Container | flex: 1 |\n| Hug Contents | width: fit-content |\n\nWhen you spot Auto Layout in Figma, you already know exactly what the CSS will look like.\n\n## Component System\n\nFigma Components map directly to React Components conceptually:\n\n- **Component:** Defines the base (e.g., `Button`)\n- **Instance:** Uses the component in multiple places\n- **Variant:** Different states (Primary, Secondary, Ghost)\n- **Props:** Customizable text, icons, states\n\nWhen designers build a proper component system, the code implementation maps nearly 1-to-1 with the design.\n\n## Useful plugins\n\n- **Iconify:** Access 200,000+ icons from every icon set\n- **Unsplash:** Insert stock photos directly\n- **Remove BG:** Automatically remove image backgrounds\n- **LilGrid:** Auto-generate grid layouts\n- **Content Reel:** Fake data (names, emails, avatars) for mockups\n\n## Free plan vs Professional\n\n**Free (Starter):**\n- Unlimited drafts\n- 3 Figma files + 3 FigJam files\n- Collaboration with unlimited viewers\n- Dev Mode read-only\n\n**Professional ($15/editor/month):**\n- Unlimited files and projects\n- Team libraries (shared components)\n- Advanced Dev Mode features\n- Version history\n\nFor side projects and learning, the Free plan is enough. Professional becomes necessary when working with a team and needing shared component libraries.\n\n## Conclusion\n\nFigma is a must-have in the toolkit of every web/mobile developer. Even if you only use it to read design specs, understanding Figma will help you implement UIs faster and reduce miscommunication with designers."
+}

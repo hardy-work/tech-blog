@@ -1,0 +1,32 @@
+{
+  "id": "shadcn-ui",
+  "slug": "shadcn-ui",
+  "name": "shadcn/ui",
+  "category": "UI Kits",
+  "tagline": "Beautifully designed components — copy, paste, own",
+  "excerpt": "shadcn/ui is not a component library in the traditional sense — there's no package to install. You copy components into your project and fully own the source code. Built on Radix UI primitives and Tailwind CSS.",
+  "affiliateUrl": "https://ui.shadcn.com",
+  "websiteUrl": "https://ui.shadcn.com",
+  "pricing": [
+    { "plan": "Open Source", "price": "Free forever", "highlight": true }
+  ],
+  "rating": 4.9,
+  "pros": [
+    "Copy source code into your project — no dependency lock-in",
+    "Accessible by default (Radix UI primitives, WAI-ARIA compliant)",
+    "Dark mode built-in with CSS variables",
+    "CLI: `npx shadcn@latest add button` installs directly into your project",
+    "Tailwind CSS — easy to customize to match your brand",
+    "TypeScript first, type-safe props"
+  ],
+  "cons": [
+    "Not a traditional component library — there's no package to update",
+    "Requires Tailwind CSS to be set up first",
+    "Some complex components require understanding Radix UI for deep customization"
+  ],
+  "image": "/images/tools/shadcn.png",
+  "tags": ["ui", "components", "tailwind", "react", "typescript", "design-system", "free"],
+  "date": "2026-06-30",
+  "affiliate": false,
+  "content": "## What is shadcn/ui?\n\nshadcn/ui was created by shadcn (Shadid Haque, engineer at Vercel) and quickly became the most popular component collection in the React/Next.js ecosystem.\n\nThe philosophy is fundamentally different: **you own the code**. Instead of `import { Button } from 'some-library'`, you copy the button component into `components/ui/button.tsx` and modify it however you like.\n\n## Getting started with Next.js\n\n```bash\n# Initialize shadcn in a Next.js project\nnpx shadcn@latest init\n\n# Add the components you need\nnpx shadcn@latest add button\nnpx shadcn@latest add card\nnpx shadcn@latest add dialog\nnpx shadcn@latest add dropdown-menu\nnpx shadcn@latest add form\n```\n\nThe CLI automatically:\n1. Creates component files in `components/ui/`\n2. Installs the required Radix UI dependencies\n3. Sets up CSS variables if they aren't already configured\n\n## Example component\n\n```tsx\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\";\n\nexport function PricingCard() {\n  return (\n    <Card className=\"w-[350px]\">\n      <CardHeader>\n        <CardTitle>Pro Plan</CardTitle>\n        <CardDescription>$20/month</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <Button className=\"w-full\">Get started</Button>\n      </CardContent>\n    </Card>\n  );\n}\n```\n\n## Why is \"copy-paste\" better than a package?\n\n**Problems with traditional component libraries:**\n- Update the library → breaking changes → fix the entire codebase\n- Want to customize → must override CSS, hack TypeScript types\n- Bundle size grows even if you only use 5 components\n\n**The shadcn/ui approach:**\n- Code lives in your repo → you have full control\n- Need a new prop? Edit the component file directly\n- Updating? Re-run the CLI, review the diff, and merge manually\n- Zero dependencies beyond Radix UI and Tailwind (both of which you already have)\n\n## Theming with CSS Variables\n\n```css\n/* globals.css */\n:root {\n  --background: 0 0% 100%;\n  --foreground: 222.2 84% 4.9%;\n  --primary: 222.2 47.4% 11.2%;\n  --primary-foreground: 210 40% 98%;\n  --radius: 0.5rem;\n}\n\n.dark {\n  --background: 222.2 84% 4.9%;\n  --foreground: 210 40% 98%;\n  --primary: 210 40% 98%;\n  --primary-foreground: 222.2 47.4% 11.2%;\n}\n```\n\nChange it once — it applies across all components.\n\n## Most commonly used components\n\n- **Form + React Hook Form:** Validation, error states, accessible labels\n- **Data Table + TanStack Table:** Sorting, filtering, pagination\n- **Command:** Command palette in the style of Spotlight/VS Code\n- **Sheet/Dialog:** Responsive modals and side panels\n- **Toast/Sonner:** Notifications with queuing\n\n## Conclusion\n\nshadcn/ui is the UI foundation I use for every Next.js project. Free, accessible, good-looking out of the box, and most importantly — it never goes stale because you own the code. Combined with Tailwind CSS v4 and Cursor IDE, this is the fastest-to-ship UI stack I know."
+}

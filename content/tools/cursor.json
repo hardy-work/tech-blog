@@ -1,0 +1,36 @@
+{
+  "id": "cursor",
+  "slug": "cursor",
+  "name": "Cursor",
+  "category": "Editor",
+  "tagline": "The AI-first code editor — built for the age of AI coding",
+  "excerpt": "Cursor is a VS Code fork with deeply integrated AI: Tab autocomplete that's smarter than Copilot, a Composer that writes code with full repo context, and Cmd+K for inline editing. The best IDE for AI-assisted development.",
+  "affiliateUrl": "https://cursor.com/pricing",
+  "websiteUrl": "https://cursor.com",
+  "pricing": [
+    { "plan": "Hobby", "price": "Free", "highlight": false },
+    { "plan": "Pro", "price": "$20/month", "highlight": true },
+    { "plan": "Business", "price": "$40/user/month", "highlight": false }
+  ],
+  "rating": 4.8,
+  "pros": [
+    "Tab autocomplete draws context from the entire codebase, not just the current file",
+    "Composer: chat and write multi-file code with full repo context",
+    "Cmd+K: edit code inline using natural language",
+    "100% compatible with VS Code extensions and settings",
+    "Supports multiple models: Claude 3.5 Sonnet, GPT-4o, Gemini",
+    "Cursor Rules to customize AI behavior per project"
+  ],
+  "cons": [
+    "Pro plan at $20/month has a fast request limit (500 req/month)",
+    "Uses more RAM than vanilla VS Code",
+    "Autocomplete can sometimes be too aggressive and needs to be dialed back",
+    "Privacy concerns: code is sent to remote servers (Privacy Mode available)"
+  ],
+  "image": "/images/tools/cursor.png",
+  "badge": "Top Pick",
+  "tags": ["editor", "ai", "coding", "productivity", "vscode", "developer-tools"],
+  "date": "2026-06-30",
+  "affiliate": true,
+  "content": "## What is Cursor?\n\nCursor is a fork of VS Code, rebuilt from the ground up with AI as a first-class citizen — not a plugin bolted on, but the core experience itself. The Cursor team has integrated AI into every workflow: from autocomplete to inline editing to writing entire new features from scratch.\n\n> **💡** Cursor keeps 100% compatibility with VS Code. All extensions, themes, and keybindings work as expected. Migration takes 2 minutes.\n\n## 3 killer features\n\n### 1. Tab Autocomplete with Codebase Context\n\nCopilot only looks at the current file and a few nearby files. Cursor Tab sees the entire repo — it understands your patterns, naming conventions, and existing implementations.\n\nFor example: if you already have a `UserCard` component, Cursor will automatically use the correct props interface when you start writing a similar component.\n\n### 2. Composer (Cmd+I or Cmd+Shift+I)\n\nComposer is where you chat with AI about your codebase and it edits files directly:\n\n```\nYou: \"Add authentication middleware to all /api routes using JWT,\n       read the secret from env, return 401 if no token is present\"\n\nCursor: [Creates middleware.ts, updates route handlers, updates types,\n          adds helper functions — all in a single pass]\n```\n\nComposer works with multi-file context — no need to point it to specific files.\n\n### 3. Cmd+K — Inline Edit\n\nSelect a block of code, press Cmd+K, and describe what you want changed:\n\n- `\"Convert to async/await\"` → refactors Promise chains\n- `\"Add TypeScript types\"` → adds full interfaces\n- `\"Write tests for this function\"` → generates test cases\n- `\"Optimize this SQL query\"` → suggests indexes, rewrites the query\n\n## Cursor Rules\n\nA `.cursorrules` file at your project root lets you customize AI behavior:\n\n```\n# .cursorrules\nYou are an expert Next.js developer.\n- Always use TypeScript with strict mode\n- Use Tailwind CSS for styling, never inline styles\n- Prefer Server Components unless interactivity needed\n- Follow the existing file structure in this project\n- Always add error boundaries for async operations\n```\n\nWith a rules file in place, every AI response in the project follows these conventions.\n\n## Cursor vs GitHub Copilot\n\n| Feature | Cursor Pro | GitHub Copilot |\n|---|---|---|\n| Price | $20/month | $10/month |\n| Autocomplete quality | Higher | Good |\n| Multi-file context | ✅ Full repo | Limited |\n| Inline chat | ✅ Cmd+K | ✅ |\n| Multi-file editing | ✅ Composer | Copilot Workspace (beta) |\n| Model choice | Claude, GPT-4o, Gemini | GPT-4o only |\n| VS Code extension | Standalone IDE | Extension |\n\n## Privacy Mode\n\nIf you're working with a sensitive codebase:\n\n1. Settings → Privacy Mode → ON\n2. Code is not stored on Cursor's servers\n3. Requests still route through Cursor's infrastructure (not directly to OpenAI/Anthropic)\n\nFor higher compliance requirements, use the Business plan with an enterprise privacy agreement.\n\n## Conclusion\n\nCursor is a $20/month investment I genuinely can't work without. If you're coding more than 4 hours a day, the ROI is obvious. Start with the Hobby plan to get a feel for it, then upgrade when you start hitting the request limit."
+}

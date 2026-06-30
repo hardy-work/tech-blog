@@ -1,0 +1,34 @@
+{
+  "id": "plausible",
+  "slug": "plausible",
+  "name": "Plausible Analytics",
+  "category": "Analytics",
+  "tagline": "Privacy-first analytics — no cookies, no GDPR headache",
+  "excerpt": "Plausible is a lightweight Google Analytics alternative (< 1KB script), with no tracking cookies and GDPR compliance out of the box. The dashboard is simple and surfaces exactly the metrics that matter — no getting lost in data you'll never use.",
+  "affiliateUrl": "https://plausible.io/register",
+  "websiteUrl": "https://plausible.io",
+  "pricing": [
+    { "plan": "10k pageviews", "price": "$9/month", "highlight": false },
+    { "plan": "100k pageviews", "price": "$19/month", "highlight": true },
+    { "plan": "1M pageviews", "price": "$69/month", "highlight": false }
+  ],
+  "rating": 4.6,
+  "pros": [
+    "Script < 1KB — zero performance impact (Google Analytics is ~45KB)",
+    "No cookie consent banner needed (GDPR, CCPA, PECR compliant)",
+    "Simple dashboard, fast loading, shows exactly what you need to see",
+    "Open source — can be self-hosted for free",
+    "30-day free trial, no credit card required",
+    "Goal tracking, custom events, UTM campaigns"
+  ],
+  "cons": [
+    "Fewer features than Google Analytics 4 (no audience segments, complex funnels)",
+    "Pricing is pageview-based — unpredictable costs during traffic spikes",
+    "No app tracking (mobile)"
+  ],
+  "image": "/images/tools/plausible.png",
+  "tags": ["analytics", "privacy", "gdpr", "performance", "tracking"],
+  "date": "2026-06-30",
+  "affiliate": true,
+  "content": "## The problem with Google Analytics\n\nGoogle Analytics 4 (GA4) is widely used but comes with serious drawbacks:\n\n1. **GDPR compliance:** Requires a cookie consent banner — hurts UX and reduces data collection rates\n2. **Performance:** A 45KB script that runs on page load, impacting LCP\n3. **Complexity:** The GA4 dashboard is overly complex when 90% of teams only use 5% of its features\n4. **Privacy:** User data flows into Google's ecosystem\n\nPlausible addresses all four of these problems.\n\n## Setup in Next.js\n\n```tsx\n// app/layout.tsx\nimport Script from 'next/script';\n\nexport default function RootLayout({ children }) {\n  return (\n    <html>\n      <body>\n        {children}\n        <Script\n          defer\n          data-domain=\"yourdomain.com\"\n          src=\"https://plausible.io/js/script.js\"\n        />\n      </body>\n    </html>\n  );\n}\n```\n\nThat's it. No wrapper component, no complex setup.\n\n## Tracking custom events\n\n```tsx\n'use client';\nimport { plausible } from '@/lib/analytics';\n\n// lib/analytics.ts\nexport function trackEvent(name: string, props?: Record<string, string | number>) {\n  if (typeof window !== 'undefined' && (window as any).plausible) {\n    (window as any).plausible(name, { props });\n  }\n}\n\n// In a component\n<Button\n  onClick={() => {\n    trackEvent('CTA Click', { location: 'hero', plan: 'pro' });\n    window.open(affiliateLink, '_blank');\n  }}\n>\n  Try for free\n</Button>\n```\n\n## Dashboard — what you actually need\n\nPlausible surfaces everything on the first screen:\n\n- **Unique visitors** (not sessions, not bots)\n- **Pageviews** with a time-series graph\n- **Top pages** — which pages get the most views\n- **Top sources** — where your traffic comes from (Google, Twitter, direct)\n- **Countries** — where your users are\n- **Devices** — desktop vs mobile\n- **Goals** — conversion tracking\n\nNo noise, no clicking through 10 menus just to find basic numbers.\n\n## Self-hosting (Free)\n\nPlausible is open source — you can host it yourself:\n\n```bash\n# Docker Compose\ngit clone https://github.com/plausible/community-edition\ncd community-edition\n# Edit plausible-conf.env\ndocker compose up -d\n```\n\nRequires a minimum of 2GB RAM, PostgreSQL and ClickHouse (both included in the Docker Compose setup).\n\n## Comparison with alternatives\n\n| | Plausible | Google Analytics | Fathom | Umami |\n|---|---|---|---|---|\n| Price | $9-69/month | Free | $14/month | Free (self-host) |\n| Cookie required | ❌ | ✅ | ❌ | ❌ |\n| Script size | <1KB | 45KB | <2KB | ~5KB |\n| Self-host | ✅ | ❌ | ❌ | ✅ |\n| GDPR by default | ✅ | ❌ | ✅ | ✅ |\n| Dashboard UX | Excellent | Complex | Simple | Good |\n\n## Conclusion\n\nIf you need analytics that are simple, fast, and headache-free from a GDPR perspective — Plausible is the best choice. $19/month for 100k pageviews, no consent banner required, and no impact on Core Web Vitals."
+}

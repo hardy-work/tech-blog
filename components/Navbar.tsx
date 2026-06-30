@@ -2,10 +2,10 @@ import Image from "next/image";
 
 export default function Navbar() {
   const links = [
-    { label: "Reviews", href: "#reviews" },
-    { label: "Compare", href: "#compare" },
-    { label: "Tools", href: "#tools" },
-    { label: "Blog", href: "#blog" },
+    { label: "Reviews", href: "/#reviews" },
+    { label: "Compare", href: "/#compare" },
+    { label: "Tools", href: "/tools" },
+    { label: "Blog", href: "/blog" },
   ];
 
   return (
@@ -14,7 +14,7 @@ export default function Navbar() {
       style={{ borderColor: "var(--border)", background: "rgba(9,9,11,0.85)" }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2">
           <Image
             src="/logo.png"
             alt="CHAEI PUEI Tech"
