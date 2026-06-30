@@ -18,8 +18,8 @@ export default function Navbar() {
           <Image
             src="/logo.png"
             alt="CHAEI PUEI Tech"
-            width={120}
-            height={40}
+            width={100}
+            height={100}
             className="h-10 w-auto object-contain"
             priority
           />

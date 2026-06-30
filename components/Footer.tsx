@@ -41,9 +41,9 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt="CHAEI PUEI Tech"
-                width={140}
-                height={47}
-                className="h-12 w-auto object-contain"
+                width={120}
+                height={120}
+                className="h-14 w-auto object-contain"
               />
             </a>
             <p className="text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
