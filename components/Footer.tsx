@@ -5,28 +5,25 @@ export default function Footer() {
     {
       title: "Content",
       links: [
-        { label: "All Reviews", href: "#reviews" },
-        { label: "Comparisons", href: "#compare" },
-        { label: "Recommended Tools", href: "#tools" },
-        { label: "Blog", href: "#blog" },
+        { label: "Blog", href: "/blog" },
+        { label: "Tools", href: "/tools" },
+        { label: "About", href: "/about" },
       ],
     },
     {
       title: "Categories",
       links: [
-        { label: "Laptops", href: "#" },
-        { label: "Audio", href: "#" },
-        { label: "Peripherals", href: "#" },
-        { label: "AI Tools", href: "#" },
+        { label: "Laptops", href: "/blog" },
+        { label: "DevOps", href: "/blog" },
+        { label: "Productivity", href: "/blog" },
+        { label: "Hosting", href: "/tools" },
       ],
     },
     {
-      title: "About",
+      title: "Contact",
       links: [
-        { label: "About Me", href: "#" },
-        { label: "Review Process", href: "#" },
-        { label: "Affiliate Disclosure", href: "#" },
-        { label: "Contact", href: "#" },
+        { label: "ngvinh.work@gmail.com", href: "mailto:ngvinh.work@gmail.com" },
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/nguyen-vinh-243142327" },
       ],
     },
   ];
@@ -37,7 +34,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           {/* brand */}
           <div className="col-span-2 lg:col-span-1">
-            <a href="#" className="inline-block mb-3">
+            <a href="/" className="inline-block mb-3">
               <Image
                 src="/logo.png"
                 alt="CHAEI PUEI Tech"
@@ -52,16 +49,24 @@ export default function Footer() {
             </p>
             {/* social */}
             <div className="flex items-center gap-3 mt-5">
-              {["𝕏", "📧", "📡"].map((icon) => (
-                <button
-                  key={icon}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center text-sm transition-colors hover:bg-white/5"
-                  style={{ border: "1px solid var(--border)" }}
-                  aria-label="social link"
-                >
-                  {icon}
-                </button>
-              ))}
+              <a
+                href="mailto:ngvinh.work@gmail.com"
+                className="w-8 h-8 rounded-lg flex items-center justify-center text-sm transition-colors hover:bg-white/5"
+                style={{ border: "1px solid var(--border)" }}
+                aria-label="Email"
+              >
+                📧
+              </a>
+              <a
+                href="https://www.linkedin.com/in/nguyen-vinh-243142327"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold transition-colors hover:bg-white/5"
+                style={{ border: "1px solid var(--border)", color: "#0a66c2" }}
+                aria-label="LinkedIn"
+              >
+                in
+              </a>
             </div>
           </div>
 
