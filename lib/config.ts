@@ -1,5 +1,5 @@
 export const siteConfig = {
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://tech-blog-xi-tawny.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.chaeipuei.com",
   name: "CHAEI PUEI Tech",
   title: "CHAEI PUEI Tech — Honest Tech Reviews",
   description:

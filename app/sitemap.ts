@@ -13,11 +13,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/tools`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
   ];
 
-  const articleRoutes: MetadataRoute.Sitemap = getAllArticles().map((a) => ({
+  const nexoSlugs = new Set(["nexo-review-earn-crypto", "nexo-vs-competitors-2026"]);
+  const allArticles = getAllArticles();
+  const articleRoutes: MetadataRoute.Sitemap = [
+    ...allArticles.filter((a) => nexoSlugs.has(a.slug)),
+    ...allArticles.filter((a) => !nexoSlugs.has(a.slug)),
+  ].map((a) => ({
     url: `${base}/blog/${a.slug}`,
     lastModified: new Date(a.date),
     changeFrequency: "monthly",
-    priority: 0.8,
+    priority: nexoSlugs.has(a.slug) ? 0.9 : 0.8,
   }));
 
   const toolRoutes: MetadataRoute.Sitemap = getAllTools().map((t) => ({
