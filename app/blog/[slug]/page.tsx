@@ -30,7 +30,9 @@ export async function generateMetadata({
   const article = getArticle(slug);
   if (!article) return {};
   const url = `${siteConfig.url}/blog/${slug}`;
-  const ogImage = `${siteConfig.url}${siteConfig.ogImage}`;
+  const ogImage = article.image
+    ? `${siteConfig.url}${article.image}`
+    : `${siteConfig.url}${siteConfig.ogImage}`;
   return {
     title: article.title,
     description: article.excerpt,
@@ -79,7 +81,9 @@ export default async function BlogPostPage({
   const toc = extractToc(article.content);
   const url = `${siteConfig.url}/blog/${slug}`;
 
-  const ogImage = `${siteConfig.url}${siteConfig.ogImage}`;
+  const ogImage = article.image
+    ? `${siteConfig.url}${article.image}`
+    : `${siteConfig.url}${siteConfig.ogImage}`;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",

@@ -3,7 +3,7 @@
   "slug": "unmanaged-vps",
   "title": "What Is an Unmanaged VPS? Pros, Cons, and How It Compares to Managed VPS",
   "excerpt": "An unmanaged VPS gives you full control over your server — but full responsibility too. This article breaks down the differences, walks through SSH hardening, UFW, and Fail2Ban setup, and helps you pick the right option.",
-  "image": "/images/unmanaged-vps.jpg",
+  "image": "",
   "category": "Cloud & VPS",
   "tags": ["vps", "ubuntu", "linux", "server", "cloud", "security", "nginx", "ssh", "firewall"],
   "readTime": "9 min",

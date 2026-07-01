@@ -101,10 +101,22 @@ export default function BlogListPage() {
             >
               <div className="flex flex-col sm:flex-row">
                 <div
-                  className="sm:w-64 h-48 sm:h-auto shrink-0 flex items-center justify-center text-5xl"
-                  style={{ background: "linear-gradient(135deg, #1c1c2e, #27272a)" }}
+                  className="sm:w-64 h-48 sm:h-auto shrink-0 overflow-hidden relative"
+                  style={{ background: "linear-gradient(135deg, #1c1c2e, #27272a)", minHeight: "12rem" }}
                 >
-                  {categoryEmoji[articles[0].category] ?? "📄"}
+                  {articles[0].image ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={articles[0].image}
+                      alt={articles[0].title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="flex items-center justify-center h-full text-5xl">
+                      {categoryEmoji[articles[0].category] ?? "📄"}
+                    </div>
+                  )}
                 </div>
                 <div className="p-6 flex flex-col justify-center">
                   <div className="flex flex-wrap items-center gap-2 mb-3">
@@ -164,10 +176,20 @@ export default function BlogListPage() {
                   style={{ background: "#18181b", border: "1px solid #3f3f46" }}
                 >
                   <div
-                    className="h-40 flex items-center justify-center text-4xl"
+                    className="h-40 overflow-hidden relative"
                     style={{ background: "linear-gradient(135deg, #1c1c2e, #27272a)" }}
                   >
-                    {emoji}
+                    {article.image ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={article.image}
+                        alt={article.title}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="flex items-center justify-center h-full text-4xl">{emoji}</div>
+                    )}
                   </div>
                   <div className="p-4">
                     <div className="flex items-center justify-between mb-2">

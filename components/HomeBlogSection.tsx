@@ -57,10 +57,20 @@ export default function HomeBlogSection() {
               style={{ background: "#18181b", border: "1px solid #27272a" }}
             >
               <div
-                className="h-40 flex items-center justify-center text-4xl"
+                className="h-40 overflow-hidden relative"
                 style={{ background: `linear-gradient(135deg, ${accent}12, ${accent}06)` }}
               >
-                {emoji}
+                {article.image ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="flex items-center justify-center h-full text-4xl">{emoji}</div>
+                )}
               </div>
               <div className="p-5">
                 <div className="flex items-center justify-between mb-2">

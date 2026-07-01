@@ -168,6 +168,16 @@ const components: Components = {
     </strong>
   ),
   hr: () => <hr className="my-8" style={{ borderColor: "#27272a" }} />,
+  img: ({ src, alt }) => (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={src}
+      alt={alt ?? ""}
+      className="w-full rounded-2xl my-6 object-cover"
+      style={{ border: "1px solid #27272a" }}
+      loading="lazy"
+    />
+  ),
 };
 
 export default function MarkdownRenderer({ content }: { content: string }) {

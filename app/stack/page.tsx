@@ -21,6 +21,7 @@ export const metadata: Metadata = {
 interface StackTool {
   name: string;
   icon: string;
+  logoImage?: string;
   tagline: string;
   stat?: string;
   url: string;
@@ -46,6 +47,7 @@ const categories: Category[] = [
       {
         name: "Nexo",
         icon: "💎",
+        logoImage: "/images/nexo/nexo-logo.png",
         tagline: "Earn up to 14% APY on crypto & stablecoins. No lock-up.",
         stat: "14% APY",
         url: "https://nexo.sjv.io/c/7446760/918878/12544",
@@ -119,12 +121,22 @@ function ToolCard({ tool }: { tool: StackTool }) {
       className="flex items-start gap-4 p-4 rounded-xl"
       style={{ background: "#111113", border: "1px solid #27272a" }}
     >
-      {/* Icon */}
+      {/* Icon / Logo */}
       <div
-        className="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0"
+        className="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0 overflow-hidden"
         style={{ background: "rgba(124,58,237,0.15)", border: "1px solid rgba(124,58,237,0.25)" }}
       >
-        {tool.icon}
+        {tool.logoImage ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={tool.logoImage}
+            alt={tool.name}
+            className="w-6 h-6 object-contain"
+            style={{ filter: "invert(1) brightness(0.9)" }}
+          />
+        ) : (
+          tool.icon
+        )}
       </div>
 
       {/* Info */}

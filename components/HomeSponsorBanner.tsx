@@ -19,7 +19,7 @@ function SponsorCard({ article }: { article: Article }) {
 
   return (
     <div
-      className="relative flex flex-col justify-between gap-5 p-6 rounded-2xl overflow-hidden"
+      className="relative flex flex-col justify-between rounded-2xl overflow-hidden"
       style={{
         background:
           "linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(79,70,229,0.12) 100%)",
@@ -32,52 +32,82 @@ function SponsorCard({ article }: { article: Article }) {
         style={{ background: "#7c3aed" }}
       />
 
-      {/* Badge */}
-      <div className="flex items-center gap-2">
-        <span
-          className="text-xs font-semibold px-2 py-0.5 rounded-full uppercase tracking-wide"
-          style={{ background: "rgba(124,58,237,0.3)", color: "#c4b5fd" }}
-        >
-          Sponsored
-        </span>
-        <span className="text-xs" style={{ color: "#3f3f46" }}>
-          Affiliate partner
-        </span>
-      </div>
-
-      {/* Content */}
-      <div className="flex-1">
-        <p className="text-base font-bold leading-snug mb-2" style={{ color: "#fafafa" }}>
-          {article.title}
-        </p>
-        {affiliateCta.description && (
-          <p className="text-xs leading-relaxed" style={{ color: "#71717a" }}>
-            {affiliateCta.description}
-          </p>
-        )}
-      </div>
-
-      {/* Actions */}
-      <div className="flex flex-col gap-2">
+      {/* Banner image */}
+      {article.image && (
         <a
           href={affiliateCta.url}
           target="_blank"
           rel="noopener noreferrer sponsored"
-          className="group inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white transition-all hover:brightness-110"
-          style={{
-            background: "linear-gradient(135deg, #7c3aed, #4f46e5)",
-            boxShadow: "0 0 20px rgba(124,58,237,0.45)",
-          }}
+          className="block overflow-hidden relative"
+          style={{ aspectRatio: "16/9" }}
         >
-          {affiliateCta.label}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={article.image}
+            alt={`${article.title} — sponsored`}
+            className="absolute inset-0 w-full h-full object-cover transition-transform hover:scale-105"
+            loading="lazy"
+          />
         </a>
-        <a
-          href={`/blog/${article.slug}`}
-          className="text-xs text-center transition-colors hover:text-violet-400"
-          style={{ color: "#52525b" }}
-        >
-          Read full article →
-        </a>
+      )}
+
+      <div className="flex flex-col gap-4 p-5">
+        {/* Badge + logo */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span
+              className="text-xs font-semibold px-2 py-0.5 rounded-full uppercase tracking-wide"
+              style={{ background: "rgba(124,58,237,0.3)", color: "#c4b5fd" }}
+            >
+              Sponsored
+            </span>
+            <span className="text-xs" style={{ color: "#3f3f46" }}>
+              Affiliate partner
+            </span>
+          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/nexo/nexo-logo.png"
+            alt="Nexo"
+            className="h-5 w-auto opacity-60"
+            style={{ filter: "invert(1) brightness(0.9)" }}
+          />
+        </div>
+
+        {/* Content */}
+        <div className="flex-1">
+          <p className="text-base font-bold leading-snug mb-2" style={{ color: "#fafafa" }}>
+            {article.title}
+          </p>
+          {affiliateCta.description && (
+            <p className="text-xs leading-relaxed" style={{ color: "#71717a" }}>
+              {affiliateCta.description}
+            </p>
+          )}
+        </div>
+
+        {/* Actions */}
+        <div className="flex flex-col gap-2">
+          <a
+            href={affiliateCta.url}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            className="group inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white transition-all hover:brightness-110"
+            style={{
+              background: "linear-gradient(135deg, #7c3aed, #4f46e5)",
+              boxShadow: "0 0 20px rgba(124,58,237,0.45)",
+            }}
+          >
+            {affiliateCta.label}
+          </a>
+          <a
+            href={`/blog/${article.slug}`}
+            className="text-xs text-center transition-colors hover:text-violet-400"
+            style={{ color: "#52525b" }}
+          >
+            Read full article →
+          </a>
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const preview = [
-  { icon: "💰", label: "Finance & Crypto", live: true },
+  { icon: "💰", label: "Finance & Crypto", live: true, image: "/images/nexo/nexo-logo.png" },
   { icon: "🚀", label: "Hosting & Deployment", live: false },
   { icon: "🖊️", label: "Code Editors & AI", live: false },
   { icon: "🎨", label: "Design & Prototyping", live: false },
@@ -56,7 +56,17 @@ export default function HomeStackSection() {
                 LIVE
               </span>
             )}
-            <span className="text-2xl">{cat.icon}</span>
+            {cat.image ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={cat.image}
+                alt={cat.label}
+                className="w-8 h-8 object-contain"
+                style={{ filter: "invert(1) brightness(0.85)" }}
+              />
+            ) : (
+              <span className="text-2xl">{cat.icon}</span>
+            )}
             <span
               className="text-xs font-medium leading-tight"
               style={{ color: cat.live ? "#e4e4e7" : "#a1a1aa" }}

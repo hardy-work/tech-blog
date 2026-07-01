@@ -8,7 +8,7 @@ export interface ArticleMeta {
   slug: string;
   title: string;
   excerpt: string;
-  image: string;
+  image?: string;
   category: string;
   tags: string[];
   readTime: string;

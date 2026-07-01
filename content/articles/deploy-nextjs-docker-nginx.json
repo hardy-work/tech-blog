@@ -3,7 +3,7 @@
   "slug": "deploy-nextjs-docker-nginx",
   "title": "How to Deploy Next.js App Router to a Ubuntu VPS with Docker and Nginx",
   "excerpt": "A step-by-step guide: multi-stage Dockerfile, Docker Compose, Nginx reverse proxy, free SSL with Certbot, and automated CI/CD with GitHub Actions.",
-  "image": "/images/deploy-nextjs-docker-nginx.jpg",
+  "image": "",
   "category": "DevOps",
   "tags": ["docker", "nginx", "nextjs", "vps", "ubuntu", "devops", "ssl", "github-actions", "cicd"],
   "readTime": "12 min",

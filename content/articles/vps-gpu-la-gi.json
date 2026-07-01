@@ -3,7 +3,7 @@
   "slug": "vps-gpu-la-gi",
   "title": "What Is a GPU VPS? Real-World Use Cases and When You Actually Need One in 2026",
   "excerpt": "How is a GPU VPS different from a regular VPS? This article breaks down the architecture, popular GPU options (NVIDIA A100, T4, RTX 4090), AI/ML and rendering use cases, and a cost comparison across providers.",
-  "image": "/images/vps-gpu.jpg",
+  "image": "",
   "category": "Cloud & VPS",
   "tags": ["gpu", "vps", "ai", "machine-learning", "cloud", "nvidia", "deep-learning", "render", "inference"],
   "readTime": "10 min",
