@@ -3,7 +3,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllArticles, getArticle, getRelatedArticles } from "@/lib/articles";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
+import ArticleVerdictBox from "@/components/ArticleVerdictBox";
 import { siteConfig } from "@/lib/config";
+
+function extractToc(content: string) {
+  return content
+    .split("\n")
+    .filter((l) => l.startsWith("## "))
+    .map((l) => {
+      const text = l.replace(/^##\s+/, "").trim();
+      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+      return { text, id };
+    });
+}
 
 export function generateStaticParams() {
   return getAllArticles().map((a) => ({ slug: a.slug }));
@@ -53,6 +65,7 @@ export default async function BlogPostPage({
   if (!article) notFound();
 
   const related = getRelatedArticles(article.slug, article.tags);
+  const toc = extractToc(article.content);
   const url = `${siteConfig.url}/blog/${slug}`;
 
   const jsonLd = {
@@ -169,6 +182,34 @@ export default async function BlogPostPage({
 
       {/* Content */}
       <main className="max-w-3xl mx-auto px-4 sm:px-6 pb-20">
+        {/* Table of Contents */}
+        {toc.length >= 4 && (
+          <nav
+            className="mb-8 p-5 rounded-2xl"
+            style={{ background: "#111113", border: "1px solid #27272a" }}
+          >
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#52525b" }}>
+              Table of Contents
+            </p>
+            <ol className="space-y-1.5">
+              {toc.map((item, i) => (
+                <li key={item.id} className="flex items-start gap-2.5">
+                  <span className="text-xs mt-0.5 shrink-0 font-mono w-4 text-right" style={{ color: "#3f3f46" }}>
+                    {i + 1}.
+                  </span>
+                  <a
+                    href={`#${item.id}`}
+                    className="text-sm transition-colors hover:text-violet-400"
+                    style={{ color: "#71717a" }}
+                  >
+                    {item.text}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        )}
+
         {/* Affiliate CTA banner */}
         {article.affiliateCta && (
           <a
@@ -212,6 +253,9 @@ export default async function BlogPostPage({
         )}
 
         <MarkdownRenderer content={article.content} />
+
+        {/* Verdict Box */}
+        {article.verdictBox && <ArticleVerdictBox verdict={article.verdictBox} />}
 
         {/* Related Posts */}
         {related.length > 0 && (

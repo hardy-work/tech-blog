@@ -5,19 +5,32 @@ import remarkGfm from "remark-gfm";
 import type { Components } from "react-markdown";
 
 const components: Components = {
-  h2: ({ children }) => (
-    <h2
-      className="text-xl font-bold mt-10 mb-4 pb-2"
-      style={{ borderBottom: "1px solid #27272a", color: "#fafafa" }}
-    >
-      {children}
-    </h2>
-  ),
-  h3: ({ children }) => (
-    <h3 className="text-lg font-semibold mt-6 mb-3" style={{ color: "#e4e4e7" }}>
-      {children}
-    </h3>
-  ),
+  h2: ({ children }) => {
+    const text = Array.isArray(children)
+      ? children.map((c) => (typeof c === "string" ? c : "")).join("")
+      : String(children ?? "");
+    const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    return (
+      <h2
+        id={id}
+        className="text-xl font-bold mt-10 mb-4 pb-2 scroll-mt-20"
+        style={{ borderBottom: "1px solid #27272a", color: "#fafafa" }}
+      >
+        {children}
+      </h2>
+    );
+  },
+  h3: ({ children }) => {
+    const text = Array.isArray(children)
+      ? children.map((c) => (typeof c === "string" ? c : "")).join("")
+      : String(children ?? "");
+    const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    return (
+      <h3 id={id} className="text-lg font-semibold mt-6 mb-3 scroll-mt-20" style={{ color: "#e4e4e7" }}>
+        {children}
+      </h3>
+    );
+  },
   p: ({ children }) => (
     <p className="text-sm leading-7 my-4" style={{ color: "#a1a1aa" }}>
       {children}

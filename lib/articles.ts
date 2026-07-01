@@ -22,9 +22,18 @@ export interface AffiliateCta {
   description?: string;
 }
 
+export interface VerdictBox {
+  rating: number;
+  summary: string;
+  highlights: string[];
+  ctaLabel: string;
+  ctaUrl: string;
+}
+
 export interface Article extends ArticleMeta {
   content: string;
   affiliateCta?: AffiliateCta;
+  verdictBox?: VerdictBox;
 }
 
 export function getAllArticles(): ArticleMeta[] {
