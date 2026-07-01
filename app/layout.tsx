@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: siteConfig.url },
   other: {
-    "impact-site-verification": "2acd882b-7451-49b5-a6a4-40f1a8cbfe04",
+    "impact-site-verification": "05fecd8d-e5e9-462e-adab-93ed7bf50a31",
     // Add Bing verification: go to bing.com/webmasters → add site → copy the content value below
     // "msvalidate.01": "YOUR_BING_VERIFICATION_CODE",
     // Add Google Search Console: go to search.google.com/search-console → add property → HTML tag method
