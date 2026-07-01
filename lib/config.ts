@@ -4,6 +4,6 @@ export const siteConfig = {
   title: "CHAEI PUEI Tech — Honest Tech Reviews",
   description:
     "In-depth reviews, product comparisons, and my personal recommended tools for developers and tech enthusiasts.",
-  ogImage: "/og.png",
+  ogImage: "/logo.png",
   twitterHandle: "@chaeipuei",
 };
