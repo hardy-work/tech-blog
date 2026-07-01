@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/blog`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
     { url: `${base}/stack`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/tools`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
   ];
 
   const nexoSlugs = new Set(["nexo-review-earn-crypto", "nexo-vs-competitors-2026"]);
