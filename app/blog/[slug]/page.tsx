@@ -30,27 +30,38 @@ export async function generateMetadata({
   const article = getArticle(slug);
   if (!article) return {};
   const url = `${siteConfig.url}/blog/${slug}`;
+  const ogImage = `${siteConfig.url}${siteConfig.ogImage}`;
   return {
     title: article.title,
     description: article.excerpt,
     keywords: article.tags,
+    category: article.category,
     authors: [{ name: article.author, url: siteConfig.url }],
+    creator: article.author,
+    publisher: siteConfig.name,
+    robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
     alternates: { canonical: url },
     openGraph: {
       title: article.title,
       description: article.excerpt,
       url,
+      siteName: siteConfig.name,
+      locale: "en_US",
       type: "article",
       publishedTime: article.date,
+      modifiedTime: article.date,
       authors: [article.author],
+      section: article.category,
       tags: article.tags,
-      images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: article.title }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: article.title, type: "image/png" }],
     },
     twitter: {
       card: "summary_large_image",
       title: article.title,
       description: article.excerpt,
-      images: [siteConfig.ogImage],
+      site: siteConfig.twitterHandle,
+      creator: siteConfig.twitterHandle,
+      images: [{ url: ogImage, alt: article.title }],
     },
   };
 }
@@ -68,21 +79,30 @@ export default async function BlogPostPage({
   const toc = extractToc(article.content);
   const url = `${siteConfig.url}/blog/${slug}`;
 
+  const ogImage = `${siteConfig.url}${siteConfig.ogImage}`;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
     description: article.excerpt,
-    author: { "@type": "Person", name: article.author, url: siteConfig.url },
+    image: ogImage,
+    author: {
+      "@type": "Person",
+      name: article.author,
+      url: siteConfig.url,
+    },
     publisher: {
       "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.url,
+      logo: { "@type": "ImageObject", url: `${siteConfig.url}/logo.png` },
     },
     datePublished: article.date,
     dateModified: article.date,
     url,
     keywords: article.tags.join(", "),
+    articleSection: article.category,
+    inLanguage: "en-US",
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
   };
 
