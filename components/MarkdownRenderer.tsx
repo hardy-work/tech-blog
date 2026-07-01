@@ -169,7 +169,7 @@ const components: Components = {
   ),
   hr: () => <hr className="my-8" style={{ borderColor: "#27272a" }} />,
   img: ({ src, alt }) => {
-    const isNexo = src?.includes("/images/nexo/");
+    const isNexo = typeof src === "string" && src.includes("/images/nexo/");
     const imgEl = (
       // eslint-disable-next-line @next/next/no-img-element
       <img
