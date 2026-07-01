@@ -1,12 +1,12 @@
 import Link from "next/link";
 
 const preview = [
-  { icon: "🚀", label: "Hosting & Deployment" },
-  { icon: "🖊️", label: "Code Editors & AI" },
-  { icon: "🎨", label: "Design & Prototyping" },
-  { icon: "🧩", label: "UI Component Libraries" },
-  { icon: "⚙️", label: "DevOps & Infra" },
-  { icon: "📊", label: "Analytics & SEO" },
+  { icon: "💰", label: "Finance & Crypto", live: true },
+  { icon: "🚀", label: "Hosting & Deployment", live: false },
+  { icon: "🖊️", label: "Code Editors & AI", live: false },
+  { icon: "🎨", label: "Design & Prototyping", live: false },
+  { icon: "🧩", label: "UI Component Libraries", live: false },
+  { icon: "⚙️", label: "DevOps & Infra", live: false },
 ];
 
 export default function HomeStackSection() {
@@ -42,13 +42,24 @@ export default function HomeStackSection() {
           <Link
             key={cat.label}
             href="/stack"
-            className="flex flex-col items-center gap-2 p-4 rounded-2xl text-center transition-colors hover:border-zinc-600 group"
-            style={{ background: "#18181b", border: "1px solid #27272a" }}
+            className="relative flex flex-col items-center gap-2 p-4 rounded-2xl text-center transition-all hover:border-zinc-600 group"
+            style={{
+              background: cat.live ? "rgba(124,58,237,0.08)" : "#18181b",
+              border: cat.live ? "1px solid rgba(124,58,237,0.3)" : "1px solid #27272a",
+            }}
           >
+            {cat.live && (
+              <span
+                className="absolute -top-1.5 -right-1.5 text-xs px-1.5 py-0.5 rounded-full font-semibold"
+                style={{ background: "#4ade80", color: "#052e16", fontSize: "9px" }}
+              >
+                LIVE
+              </span>
+            )}
             <span className="text-2xl">{cat.icon}</span>
             <span
               className="text-xs font-medium leading-tight"
-              style={{ color: "#a1a1aa" }}
+              style={{ color: cat.live ? "#e4e4e7" : "#a1a1aa" }}
             >
               {cat.label}
             </span>
