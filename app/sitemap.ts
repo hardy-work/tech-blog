@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${base}/blog/${a.slug}`,
     lastModified: new Date(a.date),
     changeFrequency: "monthly",
-    priority: nexoSlugs.has(a.slug) ? 0.9 : 0.8,
+    priority: nexoSlugs.has(a.slug) ? 0.95 : 0.8,
   }));
 
   const toolRoutes: MetadataRoute.Sitemap = getAllTools().map((t) => ({
