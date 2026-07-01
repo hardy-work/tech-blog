@@ -169,6 +169,48 @@ export default async function BlogPostPage({
 
       {/* Content */}
       <main className="max-w-3xl mx-auto px-4 sm:px-6 pb-20">
+        {/* Affiliate CTA banner */}
+        {article.affiliateCta && (
+          <a
+            href={article.affiliateCta.url}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            className="group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-2xl mb-10 transition-all hover:brightness-110"
+            style={{
+              background: "linear-gradient(135deg, rgba(124,58,237,0.18) 0%, rgba(79,70,229,0.18) 100%)",
+              border: "1px solid rgba(124,58,237,0.35)",
+            }}
+          >
+            <div className="flex items-start gap-3 min-w-0">
+              <span className="text-2xl shrink-0">⭐</span>
+              <div className="min-w-0">
+                <div className="flex items-center gap-2 mb-0.5 flex-wrap">
+                  <p className="text-sm font-bold" style={{ color: "#e4e4e7" }}>
+                    {article.affiliateCta.label.replace(" →", "")}
+                  </p>
+                  <span
+                    className="text-xs px-1.5 py-0.5 rounded font-medium"
+                    style={{ background: "rgba(124,58,237,0.3)", color: "#c4b5fd" }}
+                  >
+                    Affiliate
+                  </span>
+                </div>
+                {article.affiliateCta.description && (
+                  <p className="text-xs" style={{ color: "#a1a1aa" }}>
+                    {article.affiliateCta.description}
+                  </p>
+                )}
+              </div>
+            </div>
+            <span
+              className="shrink-0 inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-transform group-hover:scale-105"
+              style={{ background: "linear-gradient(135deg, #7c3aed, #4f46e5)" }}
+            >
+              {article.affiliateCta.label}
+            </span>
+          </a>
+        )}
+
         <MarkdownRenderer content={article.content} />
 
         {/* Related Posts */}

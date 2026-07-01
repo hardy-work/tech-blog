@@ -16,8 +16,15 @@ export interface ArticleMeta {
   author: string;
 }
 
+export interface AffiliateCta {
+  label: string;
+  url: string;
+  description?: string;
+}
+
 export interface Article extends ArticleMeta {
   content: string;
+  affiliateCta?: AffiliateCta;
 }
 
 export function getAllArticles(): ArticleMeta[] {
